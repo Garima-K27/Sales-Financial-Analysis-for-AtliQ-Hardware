@@ -16,18 +16,63 @@ All PDF files in this repository are **generated directly from the Excel workboo
 - Identify growth trends and business insights
 
 ---
+## 🗃️ Data Files Description
 
-## 📊 Data Sources
+The project follows a **star-schema–like structure**, with one fact table and multiple dimension tables to support sales and financial analysis.
+
+### 📄 Fact Tables
+
+- **fact_sales_monthly.csv**  
+  Contains monthly sales transaction data at a granular level.  
+  Key details include:
+  - Date (Month, Fiscal Year)
+  - Product, Customer, and Market references
+  - Sales quantity and revenue metrics  
+  This table serves as the core transactional dataset for time-based sales analysis.
+
 - **fact_sales_monthly_with_cost.csv**  
-  Contains monthly sales, cost, and margin data used for analysis.
+  An enriched version of the monthly sales data that includes cost information.  
+  Additional metrics include:
+  - Cost of Goods Sold (COGS)
+  - Gross Margin
+  - Gross Margin Percentage (GM%)  
+  This file is primarily used for **profitability and P&L analysis**.
 
-- **Sales report.xlsx**  
-  Core analysis file containing:
-  - Cleaned and structured data
-  - Pivot tables and charts
-  - Profit & Loss calculations
-  - Market and customer insights
+---
 
+### 📁 Dimension Tables
+
+- **dim_customer.csv**  
+  Contains customer master data used for customer-wise analysis.  
+  Typical attributes include:
+  - Customer name
+  - Customer type (e.g., Retailer, Distributor, Online)
+  - Associated market or region
+
+- **dim_market.csv**  
+  Holds geographical and market-related information.  
+  Used to analyse sales performance across:
+  - Countries
+  - Regions
+  - Sub-zones
+
+- **dim_product.csv**  
+  Contains product-level master data.  
+  Key attributes include:
+  - Product name
+  - Product category and segment
+  - Division  
+  Enables product-wise and category-level analysis.
+
+---
+
+### 📊 Usage in Analysis
+- **Fact tables** provide measurable metrics such as sales, cost, and margin.
+- **Dimension tables** provide descriptive context for slicing and dicing the data by:
+  - Time
+  - Customer
+  - Market
+  - Product
 ---
 
 ## 📑 Report Descriptions
